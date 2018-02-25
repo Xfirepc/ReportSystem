@@ -273,7 +273,7 @@ nav a#pull {
 }
 .callbacks .caption {
 
-  	background: rgba(0, 0, 0, 0.7);
+  	background: rgba(0, 0, 0, 0.6);
 	display: block;
 	position: absolute;
 	z-index: 2;
@@ -282,7 +282,7 @@ nav a#pull {
 	color: #fff;
 	left: 0;
 	right: 0;
-	padding: 80px 0 200px 0;
+	padding: 10% 80px 20% 80px;
 	max-width: none;
 	top: 0;
 	text-align: center;
@@ -1150,6 +1150,7 @@ span.default_line {
 }
 /*--responsive design--*/
 @media (max-width:1366px){
+
  .rslides img {
 	min-height:500px;
  }
@@ -1407,18 +1408,5 @@ span.default_line {
 }
 .callbacks .caption {
 
-  	background: rgba(0, 0, 0, 0.7);
-	display: block;
-	position: absolute;
-	z-index: 2;
-	font-size: 20px;
-	text-shadow: none;
-	color: #fff;
-	left: 0;
-	right: 0;
-	padding: 80px 0 200px 0;
-	max-width: none;
-	top: 0;
-	text-align: center;
-	height: 100%;
+	height: 150%;
 }

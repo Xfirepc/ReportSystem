@@ -7,7 +7,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title><?=$titulo?></title>
-<link href="<?=base_url()?>plantilla/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	
+	<!--https://bootswatch.com/4/minty/bootstrap.min.css-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="">
 <script src="<?=base_url()?>plantilla/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>plantilla/assets/js/move-top.js"></script>
 <script type="text/javascript" src="<?=base_url()?>plantilla/assets/js/easing.js"></script>
