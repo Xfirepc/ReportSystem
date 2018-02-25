@@ -1,0 +1,107 @@
+
+div.contenedor{
+
+	width: 90%;
+	height: 180px;
+	background-color: #fff;
+
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+}
+
+div.imagen{
+border-radius: 4px;
+	width: 100%;
+	height: 180px;
+	background-color: #fff;
+	overflow: hidden;
+
+}
+img.Wallpaper{
+
+	display: block;
+  margin-top: 20px;
+	width: 100%;
+	height: 180px;
+	-webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+
+}
+
+div.info{
+  top: 0px;
+	width: 80.333333%;
+	height: 40px;
+	background-color: #3c3c3c;
+  position: absolute;
+	-webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+	clear: both;
+	overflow: hidden;
+}
+p.titulo{
+
+	margin: 5px 10px ;
+	font-size: 17px;
+	color: #fff;
+
+}
+.btn-curso{
+	width: 70%;
+	max-width: 200px;
+	border-radius: 0px;
+	transition: all 0.4s;
+}
+.btn:hover{
+	background: rgb(0, 45, 85);
+	max-width: 250px;
+	border-radius: 0px;
+}
+.addi{
+	width: 15px;
+	margin: auto;
+		height: 15px;
+		float: left;
+		margin: 5px;
+		-moz-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		background: #fff;
+		box-shadow: 0px 0px 10px #00c9ff;
+}
+.text-dificult{
+	float: left;
+	font-family: 'Open Sans', sans-serif;
+	margin-left: 1.1em;
+}
+.dificult{
+	float: left;;
+	margin-left:  1em;
+}
+div.contenedor:hover{
+
+  cursor: pointer;
+}
+div.contenedor:hover .Wallpaper{
+margin-top: 40px;
+height: 170px;
+
+}
+div.contenedor:hover div.info{
+clear: both;
+height: 70px;
+
+}
+.space{
+	height: 150px;
+	width: 100px;
+}
+.rslides{
+	height: 10vh;
+}
