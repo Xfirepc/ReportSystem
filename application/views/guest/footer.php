@@ -1,16 +1,16 @@
-    
-	<style type="text/css">
-		html, body{
+    <!-- Javascript -->
+        <script src="<?=base_url()?>plantilla/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="<?=base_url()?>plantilla/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?=base_url()?>plantilla/assets/js/jquery.backstretch.min.js"></script>
+        <script src="<?=base_url()?>plantilla/assets/js/scripts.js"></script>
+       
 
-		    background-image: url('<?=base_url()?>plantilla/assets/images/slide.jpg');
-		    background-size: cover;
-		    		overflow-y: hidden;
-		overflow-x: hidden;
-		}
-	</style>
-    <!--/End-container-->
-    
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="<?=base_url()?>plantilla/assets/js/functions.js"></script>
-  </body>
+    </body>
+    <style type="text/css">
+    	body{
+    		background-image: url('<?=base_url()?>plantilla/assets/img/backgrounds/1.jpg');
+    		background-size: cover;
+    	}
+    </style>
+
 </html>

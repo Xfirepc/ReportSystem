@@ -80,7 +80,7 @@ public function ctable_users () // Creacion de Tabla para Usuarios
      echo 'Exito Tabla user Creada<br>';
      return TRUE;
     }
-}
+}     
 
 public function ctable_posts ()  // Creacion de Tabla para  Entradas
 {
