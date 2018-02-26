@@ -8,19 +8,14 @@
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Sistema </strong> De empleados</h1>
-                            <div class="description">
-                              <p>
-                                <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
-                              </p>
-                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                           <div class="form-top">
                             <div class="form-top-left">
-                              <h3>Login to our site</h3>
-                                <p>Enter your username and password to log on:</p>
+                              <h3>Ingrese sus credenciales de Acceso.</h3>
+                                <p>Recuerde que son datos confidenciales y protegidos.</p>
                             </div>
                             <div class="form-top-right">
                               <i class="fa fa-lock"></i>
@@ -29,14 +24,15 @@
                             <div class="form-bottom">
                           <form role="form" action="" method="post" class="login-form">
                             <div class="form-group">
-                              <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                              <label class="sr-only" for="form-username">Usuario o Email</label>
+                                <input type="text" name="form-username" placeholder="Usuario.." class="form-username form-control" id="form-username">
                               </div>
                               <div class="form-group">
-                                <label class="sr-only" for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                <label class="sr-only" for="form-password">Contraseña</label>
+                                <input type="password" name="form-password" placeholder="Contraseña.." class="form-password form-control" id="form-password">
                               </div>
-                              <button type="submit" class="btn">Sign in!</button>
+                              <button type="submit" class="btn">Ingresar</button>
+                              <center><p>Aun no tienes cuenta <a href=""><strong>Registrate</strong></a> como empleado.</p></center>
                           </form>
                         </div>
                         </div>
