@@ -4,6 +4,8 @@
 
 		    background-image: url('<?=base_url()?>plantilla/assets/images/slide.jpg');
 		    background-size: cover;
+		    		overflow-y: hidden;
+		overflow-x: hidden;
 		}
 	</style>
     <!--/End-container-->
