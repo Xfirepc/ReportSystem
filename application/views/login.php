@@ -32,7 +32,7 @@
                                 <input type="password" name="form-password" placeholder="Contraseña.." class="form-password form-control" id="form-password">
                               </div>
                               <button type="submit" class="btn">Ingresar</button>
-                              <center><p>Aun no tienes cuenta <a href=""><strong>Registrate</strong></a> como empleado.</p></center>
+                              <center><p>Aun no tienes cuenta <a href="<?= base_url()?>register"><strong>Registrate</strong></a> como empleado.</p></center>
                           </form>
                         </div>
                         </div>

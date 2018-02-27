@@ -1,10 +1,10 @@
+
+<?php 
 /**
  * @author Jose Flores - Compunec     corp.compunec@gmail.com
  * @copyright 2014-2017, Carlos Yánez Correra - Compunec All Rights Reserved.
  */
-
-
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Upload_Files extends CI_Controller
 {

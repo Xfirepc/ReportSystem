@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @author Carlos Yánez Correa - Compunec     corp.compunec@gmail.com
- * @copyright 2014-2017, Carlos Yánez Correra - Compunec All Rights Reserved.
+ * @author José Flores -  vinygfx@gmail.com
+ * @copyright 2017-2018, José Flores -Rights Reserved.
  */
 
 
