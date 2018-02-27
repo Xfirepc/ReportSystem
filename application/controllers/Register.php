@@ -6,7 +6,16 @@
  */
 class Register extends CI_Controller
 {
-public function index ()
+
+public function index(){
+
+	$data = [];
+	$this->load->view("guest/head",$data);
+	$this->load->view("register",$data);
+	$this->load->view("guest/footer",$data);
+
+}
+public function registro ()
 {
 		$claveseguriad = 'AU-LTH-CP17';
 
@@ -37,6 +46,7 @@ public function index ()
 				}
 			}
 		}
+
 }
 function Encrypt($string)
 {
