@@ -17,9 +17,9 @@ class Home extends CI_Controller {
      /* $this->load->model('producto');
       $data['producto'] = $this->producto->getProductos();*/
      	
-     	$this->load->view("guest/head",$data);
-		$this->load->view("login",$data);
-		$this->load->view("guest/footer",$data);
+     	$this->load->view("guest/head");
+  		$this->load->view("login");
+  		$this->load->view("guest/footer");
 
 	}
 }

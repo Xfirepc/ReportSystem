@@ -7,45 +7,54 @@
 class Register extends CI_Controller
 {
 
-public function index(){
+public function index($data = ''){
 
-	$data = [];
-	$this->load->view("guest/head",$data);
-	$this->load->view("register",$data);
-	$this->load->view("guest/footer",$data);
+	if ($data == 'success')
+		$info = array('msg' => 'El Registro ha sido satisfactorio', 'type' => 'success');
+	elseif ($data == 'error')
+		$info = array('msg' => 'Existe un problema con los datos ingresados...', 'type' => 'error');
+	elseif($data == 'exist')
+		$info = array('msg' => 'Un usuario con la cedula ingresada ya existe...', 'type' => 'warning');
+
+	$this->load->view("guest/head");
+	$this->load->view("register", $info);
+	$this->load->view("guest/footer");
 
 }
 public function registro ()
 {
-		$claveseguriad = 'AU-LTH-CP17';
+	$this->load->model('user');
+	$post = $this->input->post(); // Cargamos todos los datos 
+	$pass = $this->Encrypt($post['pass']);
 
-		if ($this->input->post('clave')) {
-			$post = $this->input->post();
-			if ($post['clave'] == $claveseguriad) {
+	$registro = array(  //Seteo new array con rows de la tabla
+		'nombres' => $post['nombres'],
+		'apellidos' => $post['apellidos'],
+		'ci' => $post['ci'],
+		'cargo' => $post['cargo'],
+		'estado_civ' => $post['estado_civ'],
+		'nacimiento' => $post['nacimiento'],
+		'fingreso' => $post['fingreso'],
+		'fnacimiento' => $post['fnacimiento'],
+		'direccion' => $post['direccion'],
+		'telefono' => $post['telefono'],
+		'telefono_e' => $post['telefono_e'],
+		'email' => $post['email'],
+		'pass' => $post['pass'],
+		'observaciones' => $post['observaciones'],
+		'img' => ''
+	);
 
-				$this->load->model('file'); // Cargamos el modelo.
-				$post = $this->input->post(); // Cargamos todos los datos que nos llegan de la vista
-				$file_name = $this->file->UploadImage('./public/img/','No es posible subir la imagen...');
-
-				$pass = $this->Encrypt($post['password']);
-
-				$registro = array(  //Seteo new array con rows de la tabla
-									'nombre' => $post['nombre'],
-									'apellido' => $post['apellido'],
-									'email' => $post['email'],
-									'password' => $pass,
-									'img' => $file_name
-									);
-
-				if ($this->db->insert('users', $registro)) {
-					echo '<script>alert("Se ha registrado Correctamente")</script>';
-					header('Location: '.base_url().'admin');
-				}else {
-					echo '<script>alert("No se ha podido registrar")</script>';
-					header('Location: '.base_url().'Home/getMsg/A ocurrido un problema...');
-				}
-			}
-		}
+	if (is_null($this->user->getUserCi($registro['ci']))) {
+	
+		if ($this->db->insert('users', $registro))
+			header('Location: '.base_url().'register/index/success');
+		else 
+			header('Location: '.base_url().'register/index/error');
+		
+	}else
+		header('Location: '.base_url().'register/index/exist');
+	
 
 }
 function Encrypt($string)

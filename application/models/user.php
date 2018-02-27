@@ -9,12 +9,11 @@
 class User extends CI_Model
 {
 
-	public function getUser($email = '')
+	public function getUserCi($ci = '')
 	{
-		$result = $this->db->query("SELECT * FROM users WHERE email = '". $email ."' LIMIT 1");
+		$result = $this->db->query("SELECT * FROM users WHERE ci = '". $ci ."' LIMIT 1");
 
 		if ($result->num_rows()>0)
-
 		{
 			return $result->row();
 		}else{

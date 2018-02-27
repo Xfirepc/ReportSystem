@@ -45,23 +45,76 @@ public function ctable_users () // Creacion de Tabla para Usuarios
                     'type' => 'INT',
                     'auto_increment' => TRUE
         ),
-        'nombre' => array(
+
+        'nombres' => array(
                         'type' => 'VARCHAR',
-                        'constraint' => '40',
-                            ),
-        'apellido' => array(
+                        'constraint' => '50',
+        ),
+
+        'apellidos' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '50',
+        ),
+
+        'ci' => array(
+                        'type' =>'INT',
+                        'constraint' => '10',
+        ),
+
+        'cargo' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '50',
+        ),
+
+        'estado_civ' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '15',
+        ),
+
+        'nacimiento' => array(
                         'type' =>'VARCHAR',
                         'constraint' => '40',
         ),
 
-        'email' => array(
+        'fingreso' => array(
                         'type' =>'VARCHAR',
                         'constraint' => '40',
         ),
-        'password' => array(
+
+        'fnacimiento' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '40',
+        ),
+        'direccion' => array(
                         'type' =>'VARCHAR',
                         'constraint' => '70',
         ),
+
+        'telefono' => array(
+                        'type' =>'INT',
+                        'constraint' => '10',
+        ),
+
+        'telefono_e' => array(
+                        'type' =>'INT',
+                        'constraint' => '10',
+        ),
+
+        'email' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '70',
+        ),
+
+        'pass' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '100',
+        ),
+
+        'observaciones' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '70',
+        ),
+
         'role' => array(
                         'type' =>'int',
                         'constraint' => '3',
@@ -77,7 +130,7 @@ public function ctable_users () // Creacion de Tabla para Usuarios
 
     if ($this->dbforge->create_table('users'))
     {
-     echo 'Exito Tabla user Creada<br>';
+     echo 'Exito Tabla users Creada<br>';
      return TRUE;
     }
 }     
