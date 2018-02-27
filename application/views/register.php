@@ -15,14 +15,14 @@
           <div class="form-top">
             <div class="form-top-left">
               <h3>Ingrese sus credenciales de Registro</h3>
-                <p>Recuerde que son datos confidenciales y protegidos.</p>
+                <p>Recuerde que son datos confidenciales y protegidos, los * son campos obligarotios.</p>
             </div>
             <div class="form-top-right">
               <i class="fa fa-lock"></i>
             </div>
             </div>
 
-            <?php if($msg){ ?>
+            <?php if(isset($msg)){ ?>
               <div class="alert alert-<?= $type?> alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <?php  echo $msg;
@@ -37,26 +37,26 @@
           <form role="form" action="<?= base_url()?>register/registro" method="post" class="login-form">
            <div class="col-md-6">
               <div class="form-group">
-              <label class="" for="form-username">Nombres</label>
-                <input type="text"  name="nombres" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Nombres</label>
+                <input type="text"  name="nombres" placeholder="" class="form-username form-control" id="req">
               </div>
            </div>
             <div class="col-md-6">
               <div class="form-group">
-              <label class="" for="form-username">Apellidos</label>
-                <input type="text"  name="apellidos" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Apellidos</label>
+                <input type="text"  name="apellidos" placeholder="" class="form-username form-control" id="req">
               </div>
            </div>
                <div class="col-md-6">
               <div class="form-group">
-              <label class="" for="form-username">Cedula de Identidad</label>
-                <input type="number"  name="ci" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Cedula de Identidad</label>
+                <input type="number"  name="ci" placeholder="" class="form-username form-control" id="req">
               </div>
            </div>
              <div class="col-md-6">
               <div class="form-group">
               <label class="" for="form-username">Cargo</label>
-                <input type="text"  name="cargo" placeholder="" class="form-username form-control" id="form-username">
+                <input type="text"  name="cargo" placeholder="" class="form-username form-control" >
               </div>
            </div>
              <div class="col-md-6">
@@ -73,7 +73,7 @@
              <div class="col-md-6">
               <div class="form-group">
               <label class="" for="form-username">Lugar de nacimiento</label>
-                <input type="text"  name="nacimiento" placeholder="" class="form-username form-control" id="form-username">
+                <input type="text"  name="nacimiento" placeholder="" class="form-username form-control" >
               </div>
            </div>
             <div class="form-group">
@@ -91,36 +91,36 @@
 
                <div class="col-md-12">
                  <div class="form-group">
-              <label class="" for="direccion">Direccion de Domicilio</label>
-                <input type="text"  name="direccion" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="direccion">*Direccion de Domicilio</label>
+                <input type="text"  name="direccion" placeholder="" class="form-username form-control" id="req">
               </div>
                </div>
 
                <div class="col-md-6"><div class="form-group">
-              <label class="" for="form-username">Telefono</label>
-                <input type="number"  name="telefono" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Telefono</label>
+                <input type="number"  name="telefono" placeholder="" class="form-username form-control" id="req">
               </div></div>
                <div class="col-md-6">
                  <div class="form-group">
-              <label class="" for="form-username">Telefono de Emergencia</label>
-                <input type="number"  name="telefono_e" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Telefono de Emergencia</label>
+                <input type="number"  name="telefono_e" placeholder="" class="form-username form-control" id="req">
               </div>
                </div>
               <div class="col-md-6"><div class="form-group">
-              <label class="" for="form-username">Correo Electronico</label>
-                <input type="email"  name="email" placeholder="" class="form-username form-control" id="form-username">
+              <label class="" for="form-username">*Correo Electronico</label>
+                <input type="email"  name="email" placeholder="" class="form-username form-control" id="req">
               </div>
             </div>
 
               <div class="col-md-6"> <div class="form-group">
-                <label class="" for="form-password">Contraseña</label>
-                <input type="password" name="pass" placeholder="" class="form-password form-control" id="form-password">
+                <label class="" for="form-password">*Contraseña</label>
+                <input type="password" name="pass" placeholder="" class="form-password form-control" id="req">
               </div>
             </div>
                 <div class="col-md-12">
                   <div class="form-group">
               <label class="" for="form-username">Observaciones</label>
-                <input type="text"  name="observaciones" placeholder="" class="form-username form-control" id="form-username"><br>
+                <input type="text"  name="observaciones" placeholder="" class="form-username form-control"><br>
               </div>
                 </div>
               <div class="clear-fix"> </div>

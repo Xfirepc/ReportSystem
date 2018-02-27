@@ -8,7 +8,7 @@ class Register extends CI_Controller
 {
 
 public function index($data = ''){
-
+	$info = [];
 	if ($data == 'success')
 		$info = array('msg' => 'El Registro ha sido satisfactorio', 'type' => 'success');
 	elseif ($data == 'error')

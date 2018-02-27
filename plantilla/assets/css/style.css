@@ -154,6 +154,7 @@ img { max-width: 100%; }
 
 .form-bottom form .input-error {
 	border-color: #de615e;
+	border: 3px solid #de615e;
 }
 
 .social-login {
