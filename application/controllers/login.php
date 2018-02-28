@@ -12,41 +12,36 @@ class Login extends CI_Controller
 	public function index ()
 	{
 
-		$email = $this->input->post('user');
-		$password = $this->input->post('password');
+		$ci = $this->input->post('user');
+		$password = $this->input->post('pass');
 
 		$this->load->model('user');
-		$fila = $this->user->getUser($email);
+		$fila = $this->user->getUserCi($ci);
 
-		//Consulta de Users
 		if ($fila != NULL) {
 
-			if ($fila->password == $this->Encrypt($password)) {
+			if ($fila->pass == $this->Encrypt($password)) {
 
 			//Set Arreglo para variables de session
 			$data = array(
-				'nombre' => $fila->nombre,
-				'apellido' => $fila->apellido,
+				'nombres' => $fila->nombres,
+				'apellidos' => $fila->apellidos,
 				'email' => $fila->email,
-				'password' => $fila->password,
+				'ci' => $fila->ci,
 				'id' => $fila->user_id,
 				'login' => true,
 				'img'=> $fila->img
 			);
 
-		$this->session->set_userdata($data);
+			$this->session->set_userdata($data);
 
-		header("Location:". base_url().perfil);
-
-	}else {
-
-		header("Location:". base_url().'admin');
+			echo "Ha ingresado correctamente";
+			}else
+			header("Location:". base_url().'home/index/exist');
+		}else
+			header("Location:". base_url().'home/index/error');
 	}
-			}else{
 
-		header("Location:". base_url().'admin');
-		}
-	}
 
 	public function salir()
 	{
@@ -54,7 +49,7 @@ class Login extends CI_Controller
 		header("Location:". base_url());
 	}
 
-	function Encrypt($string)
+	public function Encrypt($string)
 	{
 	    $str = NULL;
 	    $long = strlen($string);
@@ -64,8 +59,6 @@ class Login extends CI_Controller
 	  }
 	 return md5($str);
 	}
-
-
 }
 
- ?>
+?>

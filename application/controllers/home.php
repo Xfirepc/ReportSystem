@@ -7,18 +7,19 @@
 
 class Home extends CI_Controller {
 
-	public function index()
+	public function index($data = '')
 	{
 
-      $data = array('app' =>'');
-      $data = array('titulo' =>'Trole System');
-  
-    //Entradas de BLOG y SERVICIOS
-     /* $this->load->model('producto');
-      $data['producto'] = $this->producto->getProductos();*/
-     	
+   	  $info = [];
+      if ($data == 'success')
+        $info = array('msg' => 'Success', 'type' => 'success');
+      elseif ($data == 'error')
+        $info = array('msg' => 'Existe un problema con los datos ingresados...', 'type' => 'error');
+      elseif($data == 'exist')
+        $info = array('msg' => 'Clave incorrecta...', 'type' => 'warning');
+
      	$this->load->view("guest/head");
-  		$this->load->view("login");
+  		$this->load->view("login", $info);
   		$this->load->view("guest/footer");
 
 	}

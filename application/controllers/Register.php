@@ -12,7 +12,7 @@ public function index($data = ''){
 	if ($data == 'success')
 		$info = array('msg' => 'El Registro ha sido satisfactorio', 'type' => 'success');
 	elseif ($data == 'error')
-		$info = array('msg' => 'Existe un problema con los datos ingresados...', 'type' => 'error');
+		$info = array('msg' => 'Existe un problema con los datos ingresados...', 'type' => 'danger');
 	elseif($data == 'exist')
 		$info = array('msg' => 'Un usuario con la cedula ingresada ya existe...', 'type' => 'warning');
 
@@ -40,7 +40,8 @@ public function registro ()
 		'telefono' => $post['telefono'],
 		'telefono_e' => $post['telefono_e'],
 		'email' => $post['email'],
-		'pass' => $post['pass'],
+		'pass' => $this->Encrypt($post['pass']),
+		'role' => 0,
 		'observaciones' => $post['observaciones'],
 		'img' => ''
 	);
@@ -57,7 +58,7 @@ public function registro ()
 	
 
 }
-function Encrypt($string)
+public function Encrypt($string)
 {
     $str = NULL;
     $long = strlen($string);
