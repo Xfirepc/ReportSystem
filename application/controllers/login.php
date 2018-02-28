@@ -12,6 +12,10 @@ class Login extends CI_Controller
 	public function index ()
 	{
 
+		if (isset($_SESSION['login'])) 
+        header('location: '.base_url().'dashboard'); 
+
+	
 		$ci = $this->input->post('user');
 		$password = $this->input->post('pass');
 
@@ -22,7 +26,6 @@ class Login extends CI_Controller
 
 			if ($fila->pass == $this->Encrypt($password)) {
 
-			//Set Arreglo para variables de session
 			$data = array(
 				'nombres' => $fila->nombres,
 				'apellidos' => $fila->apellidos,
@@ -32,7 +35,7 @@ class Login extends CI_Controller
 				'login' => true,
 				'img'=> $fila->img
 			);
-
+			
 			$this->session->set_userdata($data);
 
 			echo "Ha ingresado correctamente";
@@ -40,8 +43,8 @@ class Login extends CI_Controller
 			header("Location:". base_url().'home/index/exist');
 		}else
 			header("Location:". base_url().'home/index/error');
+		
 	}
-
 
 	public function salir()
 	{

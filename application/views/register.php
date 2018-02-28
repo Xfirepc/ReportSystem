@@ -15,7 +15,7 @@
           <div class="form-top">
             <div class="form-top-left">
               <h3>Ingrese sus credenciales de Registro</h3>
-                <p>Recuerde que son datos confidenciales y protegidos, los * son campos obligarotios.</p>
+                <p>Recuerde que son datos confidenciales y protegidos, los (*) son campos obligarotios.</p>
             </div>
             <div class="form-top-right">
               <i class="fa fa-lock"></i>

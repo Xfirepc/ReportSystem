@@ -10,11 +10,15 @@ class Home extends CI_Controller {
 	public function index($data = '')
 	{
 
+
+    if (isset($_SESSION['login'])) 
+        header('location: '.base_url().'dashboard');   
+
    	  $info = [];
       if ($data == 'success')
         $info = array('msg' => 'Success', 'type' => 'success');
       elseif ($data == 'error')
-        $info = array('msg' => 'Existe un problema con los datos ingresados...', 'type' => 'error');
+        $info = array('msg' => 'Los datos son incorrectos...', 'type' => 'danger');
       elseif($data == 'exist')
         $info = array('msg' => 'Clave incorrecta...', 'type' => 'warning');
 

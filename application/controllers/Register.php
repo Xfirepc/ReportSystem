@@ -8,6 +8,10 @@ class Register extends CI_Controller
 {
 
 public function index($data = ''){
+
+	if (isset($_SESSION['login'])) 
+        header('location: '.base_url().'dashboard'); 
+    
 	$info = [];
 	if ($data == 'success')
 		$info = array('msg' => 'El Registro ha sido satisfactorio', 'type' => 'success');
@@ -22,40 +26,43 @@ public function index($data = ''){
 
 }
 public function registro ()
-{
-	$this->load->model('user');
-	$post = $this->input->post(); // Cargamos todos los datos 
-	$pass = $this->Encrypt($post['pass']);
+{	
 
-	$registro = array(  //Seteo new array con rows de la tabla
-		'nombres' => $post['nombres'],
-		'apellidos' => $post['apellidos'],
-		'ci' => $post['ci'],
-		'cargo' => $post['cargo'],
-		'estado_civ' => $post['estado_civ'],
-		'nacimiento' => $post['nacimiento'],
-		'fingreso' => $post['fingreso'],
-		'fnacimiento' => $post['fnacimiento'],
-		'direccion' => $post['direccion'],
-		'telefono' => $post['telefono'],
-		'telefono_e' => $post['telefono_e'],
-		'email' => $post['email'],
-		'pass' => $this->Encrypt($post['pass']),
-		'role' => 0,
-		'observaciones' => $post['observaciones'],
-		'img' => ''
-	);
-
-	if (is_null($this->user->getUserCi($registro['ci']))) {
 	
-		if ($this->db->insert('users', $registro))
-			header('Location: '.base_url().'register/index/success');
-		else 
-			header('Location: '.base_url().'register/index/error');
+
+	if (!isset($_SESSION)) {
+		$this->load->model('user');
+		$post = $this->input->post(); 
+		$pass = $this->Encrypt($post['pass']);
+
+		$registro = array(
+			'nombres' => $post['nombres'],
+			'apellidos' => $post['apellidos'],
+			'ci' => $post['ci'],
+			'cargo' => $post['cargo'],
+			'estado_civ' => $post['estado_civ'],
+			'nacimiento' => $post['nacimiento'],
+			'fingreso' => $post['fingreso'],
+			'fnacimiento' => $post['fnacimiento'],
+			'direccion' => $post['direccion'],
+			'telefono' => $post['telefono'],
+			'telefono_e' => $post['telefono_e'],
+			'email' => $post['email'],
+			'pass' => $this->Encrypt($post['pass']),
+			'role' => 0,
+			'observaciones' => $post['observaciones'],
+			'img' => ''
+		);
+
+		if (is_null($this->user->getUserCi($registro['ci']))) {
 		
-	}else
-		header('Location: '.base_url().'register/index/exist');
-	
+			if ($this->db->insert('users', $registro))
+				header('Location: '.base_url().'register/index/success');
+			else 
+				header('Location: '.base_url().'register/index/error');
+		}else
+			header('Location: '.base_url().'register/index/exist');
+	}
 
 }
 public function Encrypt($string)
