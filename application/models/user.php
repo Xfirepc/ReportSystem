@@ -22,13 +22,17 @@ class User extends CI_Model
 		}
 	}
 
-		public function getUserInfo()
+	public function getUsersInfo()
 	{
 
-		return $this->db->get('users');
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->order_by('user_id','DESC');
+		$query = $this->db->get();
+		//$result = $query->result();
+		return $query->result();
 	}
-
-		public function getUserById($id = '')
+	public function getUserById($id = '')
 	{
 
 		$result = $this->db->query("SELECT * FROM users WHERE user_id ='".$id."'LIMIT 1");

@@ -38,7 +38,7 @@ class Login extends CI_Controller
 			
 			$this->session->set_userdata($data);
 
-			echo "Ha ingresado correctamente";
+			header('location: '.base_url().'dashboard'); 
 			}else
 			header("Location:". base_url().'home/index/exist');
 		}else
