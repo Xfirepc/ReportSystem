@@ -22,6 +22,12 @@ class User extends CI_Model
 		}
 	}
 
+	public function updateUser($ci = '', $data = [])
+	{
+		$this->db->where('ci', $ci);
+		return $this->db->update('users', $data);
+	}
+
 	public function getUsersInfo()
 	{
 

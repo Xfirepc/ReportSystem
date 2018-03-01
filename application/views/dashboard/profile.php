@@ -34,8 +34,8 @@
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
                         <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" >
-                                <div class="overlay-box">
+                            <div class="user-bg">
+                                  <div class="overlay-box">
                                     <div class="user-content">
                                         <a href="javascript:void(0)"><img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= !empty($profile->img) ? $profile->img : 'varun.jpg' ?>" class="thumb-lg img-circle" alt="img"></a>
                                         <h4 class="text-white"><?= $profile->nombres?></h4>
@@ -133,7 +133,7 @@
 
               <div class="col-md-6"> <div class="form-group">
                 <label class="" for="form-password">*Contraseña</label>
-                <input type="password" name="pass"   value="" class="form-control form-control-line" id="req" autocomplete="off">
+                <input type="password" name="passw"   value="<?= $profile->pass?>" class="form-control form-control-line" id="pass" autocomplete="off">
               </div>
             </div>
                 <div class="col-md-12">
@@ -166,3 +166,10 @@
             -webkit-box-shadow: 0 0 0px 1000px #fff inset;
         }
     </style>
+
+    <script type="text/javascript">
+      document.addEventListener('load', () => {
+        let pass = document.getElementById('pass');
+        pass.value = ""
+      })
+    </script>

@@ -59,6 +59,43 @@ public function registro ()
 	
 
 }
+public function update ()
+{	
+
+		$this->load->model('user');
+		$post = $this->input->post(); 
+		$user = $this->user->getUserCi($_SESSION['ci']);
+
+		$registro = array(
+			'nombres' => $post['nombres'],
+			'apellidos' => $post['apellidos'],
+			'ci' => $post['ci'],
+			'cargo' => $post['cargo'],
+			'estado_civ' => $post['estado_civ'],
+			'nacimiento' => $post['nacimiento'],
+			'fingreso' => $post['fingreso'],
+			'fnacimiento' => $post['fnacimiento'],
+			'direccion' => $post['direccion'],
+			'telefono' => $post['telefono'],
+			'telefono_e' => $post['telefono_e'],
+			'email' => $post['email'],
+			'role' => 0,
+			'observaciones' => $post['observaciones'],
+			'img' => ''
+		);
+
+		if (isset( $post['passw'] ) && !empty( $post['passw'] ))
+			if ($user->pass != $post['passw'])
+				$registro['pass'] =  $this->Encrypt($post['passw']);
+
+		
+		if ($this->db->update('users', $registro)) {
+			echo "Si se actualizo";
+		}else
+			echo "Algo fallo";
+	
+
+}
 public function Encrypt($string)
 {
     $str = NULL;
