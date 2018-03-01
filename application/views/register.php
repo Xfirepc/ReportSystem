@@ -34,7 +34,7 @@
             <?php } ?>
 
             <div class="form-bottom">
-          <form role="form" action="<?= base_url()?>register/registro" method="post" class="login-form">
+          <form role="form" action="<?= base_url()?>register/registro" method="post" class="login-form" enctype="multipart/form-data">
            <div class="col-md-6">
               <div class="form-group">
               <label class="" for="form-username">*Nombres</label>
@@ -123,6 +123,8 @@
                 <input type="text"  name="observaciones" placeholder="" class="form-username form-control"><br>
               </div>
                 </div>
+
+
               <div class="clear-fix"> </div>
               <button type="submit" class="btn">Registrar</button>
               <center><p>Ya tienes cuenta? <a href="<?= base_url()?>"><strong>Inicia Sesion</strong></a> como empleado.</p></center>
@@ -134,7 +136,3 @@
 </div>
 
 </div>
-        <style type="text/css">
-          
-
-        </style>

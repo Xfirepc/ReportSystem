@@ -34,7 +34,7 @@
                         </form>
                     </li>-->
                     <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= $profile->img ?>" alt="user-img" width="36" class="img-circle"><b class=""><?= $profile->nombres.' '.$profile->apellidos ?></b></a>
+                        <a class="profile-pic" href="#"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= !empty($profile->img) ? $profile->img : 'varun.jpg' ?>" alt="user-img" width="36" class="img-circle"><b class=""><?= $profile->nombres.' '.$profile->apellidos ?></b></a>
                     </li>
                 </ul>
             </div>  

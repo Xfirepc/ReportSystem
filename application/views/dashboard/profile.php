@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-         <form role="form" action="<?= base_url()?>register/update" method="post" class="login-form" >
+         <form role="form" action="<?= base_url()?>register/update" method="post" class="login-form"  enctype="multipart/form-data">
            <div class="col-md-6">
               <div class="form-group">
               <label class="" for="form-control-line">*Nombres</label>
@@ -141,6 +141,12 @@
               <label class="" for="form-control-line">Observaciones</label>
                 <input type="text"  name="observaciones"   value="<?= $profile->observaciones?>" class="form-control form-control-line"><br>
               </div>
+                </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="" for="form-control-line">Imagen</label>
+                      <input type="file" name="userfile" class="form-control form-control-line"><br>
+                    </div>
                 </div>
                <div class="form-group">
                     <div class="col-sm-12 text-center">

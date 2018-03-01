@@ -87,12 +87,18 @@ public function update ()
 		if (isset( $post['passw'] ) && !empty( $post['passw'] ))
 			if ($user->pass != $post['passw'])
 				$registro['pass'] =  $this->Encrypt($post['passw']);
+		//var_dump($_FILES);
+		if (isset( $_FILES['userfile']['name'] ) && !empty( $_FILES['userfile']['name'] )){
+				$_FILES['userfile']['name'] = time().substr($_FILES['userfile']['name'], -4);
+				$this->load->model('file');
+ 				$file_name = $this->file->UploadImage('./plantilla/dashboard/plugins/images/users/','No es posible subir la imagen...');
+				$registro['img'] =  $file_name;
+		}
 
-		
 		if ($this->db->update('users', $registro)) {
-			echo "Si se actualizo";
+			header('location: '. base_url().'profile');
 		}else
-			echo "Algo fallo";
+			echo "Algo fallo...";
 	
 
 }
