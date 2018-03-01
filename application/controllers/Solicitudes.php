@@ -56,6 +56,24 @@ class Solicitudes extends CI_Controller
 			header('location: '.base_url());
 		}
 	}
+	public function insert(){
+		
+		if (isset($_POST)) {
+
+			$this->load->model( 'user' );
+			$user = $this->user->getUserCi( $_SESSION['ci'] );
+
+			$insert = [
+						'user_ci' => $user->ci,
+						'username' => $user->nombres. ' '.$user->apellidos,
+						'content' => $_POST['content'],
+						'status' => 0,
+						'fecha' => $_POST['fecha']
+					];
+			$this->db->insert('solicitudes', $insert);
+			header('location: '. base_url(). 'Solicitudes');
+		}
+	}
 }
 
 ?>

@@ -60,7 +60,7 @@
                   <div class="modal-body">
     
 
-                        <form>
+                        <form action="<?= base_url()?>Solicitudes/insert" method="post">
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Asunto</label>
                             <input type="text" name="asunto" class="form-control" id="exampleFormControlInput1" placeholder="">
@@ -70,14 +70,18 @@
                             <label for="exampleFormControlTextarea1">Contenido</label>
                             <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                           </div>
-                        </form>
 
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Fecha</label>
+                            <input type="date" name="fecha" class="form-control" id="exampleFormControlInput1" placeholder="">
+                          </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
 
 
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -134,7 +138,7 @@
                             if ((int)$soli->status == 1) {
                         ?>
                       
-                    <div class="comment-center p-t-10">
+                    <div class="comment-center p-t-10 " style="background: #E3E4E5">
                         <div class="comment-body">
                             <div class="user-img"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= $soli->img?>" alt="user" class="img-circle">
                             </div>
