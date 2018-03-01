@@ -17,9 +17,11 @@ class Dashboard extends CI_Controller
 				$users = $this->user->getUsersInfo();
 
 				
-				$data = [ 'users' => $users ];
-				$this->load->view( 'dashboard/head.php' );
-				$this->load->view( 'dashboard/header.php' );
+				$data = [ 'users' => $users,
+						  'profile' => $user
+						 ];
+				$this->load->view( 'dashboard/head.php', $data );
+				$this->load->view( 'dashboard/header.php', $data );
 				$this->load->view( 'dashboard/dashboard.php', $data );
 				$this->load->view( 'dashboard/footer.php' );
 
