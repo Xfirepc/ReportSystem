@@ -13,12 +13,10 @@ class User extends CI_Model
 		$result = $this->db->query("SELECT * FROM users WHERE ci = '". $ci ."' LIMIT 1");
 
 		if ($result->num_rows()>0)
-		{
 			return $result->row();
-		}else{
-
+		else
 			return null;
-		}
+		
 	}
 
 	public function updateUser($ci = '', $data = [])
@@ -54,6 +52,16 @@ class User extends CI_Model
 
 		$result = $this->db->query("SELECT * FROM users WHERE user_id ='".$id."'LIMIT 1");
 		return $result->row();
+
+	}
+	public function deleteUser($id = '')
+	{
+
+		$this->db->where('user_id', $id);
+		if ($this->db->delete('users'))
+			return true;
+		else 
+			return false;
 
 	}
 }

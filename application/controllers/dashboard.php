@@ -13,13 +13,23 @@ class Dashboard extends CI_Controller
 			if (isset( $_SESSION['ci'] )) {
 				
 				$this->load->model( 'user' );
+				$this->load->model( 'solicitud' );
+				$users = $this->user->getUsersInfo(10);
 				$user = $this->user->getUserCi( $_SESSION['ci'] );
-				$users = $this->user->getUsersInfo();
-
+				$soli = $this->solicitud->getSolicitudes(3)->result();
 				
-				$data = [ 'users' => $users,
-						  'profile' => $user
-						 ];
+
+				for($x = 0; $x < count($soli); $x++) {
+					$soli[$x] = (array) $soli[$x];
+					$soli[$x]['img'] = $this->user->getUserCi( $soli[$x]['user_ci'] )->img;
+					$soli[$x] = (object) $soli[$x];
+				}
+
+				$data = [ 'profile' => $user,
+							'users' => $users,
+						  'solicitudes' => $soli 
+						];
+
 				$this->load->view( 'dashboard/head.php', $data );
 				$this->load->view( 'dashboard/header.php', $data );
 				$this->load->view( 'dashboard/dashboard.php', $data );

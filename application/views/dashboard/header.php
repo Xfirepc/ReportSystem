@@ -65,7 +65,7 @@
                         <a href="<?= base_url()?>Solicitudes" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Solicitudes</a>
                     </li>
                     <li>
-                        <a href="<?= base_url()?>strikes" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Multas</a>
+                        <!--<a href="<?= base_url()?>strikes" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Multas</a>-->
                     </li>
 
                 </ul>

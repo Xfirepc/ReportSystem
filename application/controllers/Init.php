@@ -19,8 +19,8 @@ class Init extends CI_Controller
          if(!$this->db->table_exists('users')) // Existe la tabla?
             $this->ctable_users();
 
-         if(!$this->db->table_exists('entradas')) // Existe la tabla?
-            $this->ctable_posts();
+         if(!$this->db->table_exists('solicitudes')) // Existe la tabla?
+            $this->ctable_soli();
 
        }else {
 
@@ -135,79 +135,48 @@ public function ctable_users () // Creacion de Tabla para Usuarios
     }
 }     
 
-public function ctable_posts ()  // Creacion de Tabla para  Entradas
+public function ctable_soli ()  // Creacion de Tabla para  Entradas
 {
 
-    $this->load->dbforge('quito_tdb');
-    $fields = array(
-     'post_id' => array(
-                      'type' => 'INT',
-                      'auto_increment' => TRUE
-      ),
-      'title' => array(
-                      'type' => 'VARCHAR',
-                      'constraint' => '100',
-      ),
-      'desc_short' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '300',
-      ),
-     'desc_small' => array(
-                      'type' =>'LONGTEXT',
-      ),
 
-      'etiqueta' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '150',
-      ),
-      'comentarios' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '200',
-      ),
-      'img' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '100',
-      ),
-      'posted_by' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '100',
-      ),
-      'categoria' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '100',
-      ),
-      'type' => array(
-                      'type' =>'INT',
-                      'constraint' => '2',
-                      'default' => 0,
-      ),
-      'fecha' => array(
-                      'type' =>'DATE',
-      ),
+  $this->load->dbforge('quito_tdb');
+   $fields = array(
+        'id' => array(
+                    'type' => 'INT',
+                    'auto_increment' => TRUE
+        ),
 
-    'seo_desc' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '1000',
-      ),
-     'seo_subj' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '1000',
-      ),
-     'seo_key' => array(
-                      'type' =>'VARCHAR',
-                      'constraint' => '1000',
-      ),
+        'user_ci' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '50',
+        ),
 
-  );
-  $this->dbforge->add_field($fields);
-  $this->dbforge->add_key('post_id', TRUE);
+        'username' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '80',
+        ),
 
-  if ($this->dbforge->create_table('entradas'))
-  {
-   echo 'Exito Tabla posts Creada<br>';
-   return TRUE;
+        'content' => array(
+                        'type' =>'TEXT',
+                        'constraint' => '400',
+        ),
+        'status' => array(
+                        'type' =>'INT',
+                        'constraint' => '2',
+        ),
+        'fecha' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '15',
+        )
+     );
+
+    $this->dbforge->add_field($fields);
+    $this->dbforge->add_key('id', TRUE);
+
+    if ($this->dbforge->create_table('solicitudes'))
+    {
+     echo 'Exito Tabla Solicitudes Creada<br>';
+     return TRUE;
+    }
   }
-}
-
-
 }

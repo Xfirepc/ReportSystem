@@ -28,6 +28,29 @@ class Empleados extends CI_Controller
 			}else
 				header('location: '.base_url());
 	}
+
+	public function del ( $id = '' ){
+		if ($id != '') {
+			$this->load->model('user');
+			$this->user->deleteUser($id);
+			header('location: '.base_url().'empleados');
+		}else
+			header('location: '.base_url());
+	}
+	public function view( $ci ){
+
+		$this->load->model( 'user' );
+		$user = $this->user->getUserCi( $_SESSION['ci'] );
+		$empleado = $this->user->getUserCi( $ci );
+		$data = [ 
+				   'profile' => $user
+				];	
+		$this->load->view( 'dashboard/head.php', $data );
+		$this->load->view( 'dashboard/header.php', $data );
+		$this->load->view( 'dashboard/single_emp.php', $data );
+		$this->load->view( 'dashboard/footer.php' );
+
+	}	
 }
 
 ?>

@@ -3,6 +3,7 @@
 <!-- Page Content -->
 <!-- ============================================================== -->
 <div id="page-wrapper">
+
     <div class="container-fluid">
         <br>
         <div class="row bg-title hidden-md hidden-lg">
@@ -37,7 +38,53 @@
         <!-- ============================================================== -->
         <!-- table -->
         <!-- ============================================================== -->
+ <div class="row">
+    <!-- .col -->
+    <div class="col-md-2 pull-right text-right">
+        <div class="white-box" style="padding: 5px;">
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Crear solicitud
+            </button>
 
+            <!-- Modal -->
+            <div class="modal fade text-left" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+    
+
+                        <form>
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Asunto</label>
+                            <input type="text" name="asunto" class="form-control" id="exampleFormControlInput1" placeholder="">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Contenido</label>
+                            <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                          </div>
+                        </form>
+
+
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
         <!-- ============================================================== -->
         <!-- chat-listing & recent comments -->
         <!-- ============================================================== -->
@@ -45,25 +92,69 @@
             <!-- .col -->
             <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="white-box">
-                    <h3 class="box-title">Solicitudes</h3>
+                    <h3 class="box-title">Solicitudes Pendientes</h3>
+
+                    <?php foreach ($solicitudes as $soli) {
+                           if ((int)$soli->status == 0) {
+                        ?>
                     <div class="comment-center p-t-10">
                         <div class="comment-body">
-                            <div class="user-img"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
+                            <div class="user-img"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= $soli->img?>" alt="user" class="img-circle">
                             </div>
                             <div class="mail-contnet">
-                                <div class="col-md-6">
-                                    <h5>Pavan kumar  &nbsp;<span class="time">10:20 AM   20  may 2016</span></h5>
-                                </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="javacript:void(0)" class="btn btn btn-rounded btn-default btn-outline m-r-5"><i class="ti-check text-success m-r-5"></i>Approve</a>
-                                    <a href="javacript:void(0)" class="btn-rounded btn btn-default btn-outline"><i class="ti-close text-danger m-r-5"></i> Reject</a>
+                                <div class="col-md-12">
+                                    <h5>CI: <?= $soli->user_ci ?> &nbsp; <strong> <?= $soli->username ?> </strong> &nbsp;<span class="time pull-right"><?= $soli->fecha ?></span></h5>
                                 </div>
 
-                                <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span> 
+                            <br/><span class="col-md-12 text-muted"><?= $soli->content?>           
+                                    <div class="col-md-3 pull-right text-right">
+                                    <a href="<?= base_url().'Solicitudes/checked/'.$soli->id ?>" class="btn-rounded btn btn-success btn-outline"><i class="fa fa-check"></i></a>
+                                    <a href="<?= base_url().'Solicitudes/del/'.$soli->id ?>" class="btn-rounded btn btn-danger btn-outline"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </span> 
                             </div>
-                        </div>
 
+                        </div>
                     </div>
+
+                    <?php }} ?>
+
+                </div>
+            </div>
+
+            <!-- /.col -->
+        </div>
+                <div class="row">
+            <!-- .col -->
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Solicitudes Aprobadas</h3>
+
+                    <?php foreach ($solicitudes as $soli) { 
+                            if ((int)$soli->status == 1) {
+                        ?>
+                      
+                    <div class="comment-center p-t-10">
+                        <div class="comment-body">
+                            <div class="user-img"> <img src="<?= base_url()?>plantilla/dashboard/plugins/images/users/<?= $soli->img?>" alt="user" class="img-circle">
+                            </div>
+                            <div class="mail-contnet">
+                                <div class="col-md-12">
+                                    <h5>CI: <?= $soli->user_ci ?> &nbsp; <strong> <?= $soli->username ?> </strong> &nbsp;<span class="time pull-right"><?= $soli->fecha ?></span></h5>
+                                </div>
+
+                            <br/><span class="col-md-12 text-muted"><?= $soli->content?>           
+                                    <div class="col-md-3 pull-right text-right">
+                                    <a href="<?= base_url().'Solicitudes/del/'.$soli->id ?>" class="btn-rounded btn btn-danger btn-outline"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </span> 
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <?php }} ?>
+
                 </div>
             </div>
 
