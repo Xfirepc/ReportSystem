@@ -8,9 +8,6 @@ class Register extends CI_Controller
 {
 
 public function index($data = ''){
-
-	if (isset($_SESSION['login'])) 
-        header('location: '.base_url().'dashboard'); 
     
 	$info = [];
 	if ($data == 'success')
@@ -28,9 +25,6 @@ public function index($data = ''){
 public function registro ()
 {	
 
-	
-
-	if (!isset($_SESSION)) {
 		$this->load->model('user');
 		$post = $this->input->post(); 
 		$pass = $this->Encrypt($post['pass']);
@@ -62,7 +56,7 @@ public function registro ()
 				header('Location: '.base_url().'register/index/error');
 		}else
 			header('Location: '.base_url().'register/index/exist');
-	}
+	
 
 }
 public function Encrypt($string)
