@@ -59,10 +59,10 @@
                         <a href="<?= base_url()?>profile" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Perfil</a>
                     </li>
                     <li>
-                        <a href="<?= base_url()?>worker" class="waves-effect"><i class="fa fa-group fa-fw" aria-hidden="true"></i>Empleados</a>
+                        <a href="<?= base_url()?>empleados" class="waves-effect"><i class="fa fa-group fa-fw" aria-hidden="true"></i>Empleados</a>
                     </li>
                     <li>
-                        <a href="<?= base_url()?>requests" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Solicitudes</a>
+                        <a href="<?= base_url()?>Solicitudes" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Solicitudes</a>
                     </li>
                     <li>
                         <a href="<?= base_url()?>strikes" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Multas</a>

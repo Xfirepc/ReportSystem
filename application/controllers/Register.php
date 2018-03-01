@@ -98,7 +98,6 @@ public function update ()
 		}else
 			echo "Algo fallo...";
 	
-
 }
 public function Encrypt($string)
 {

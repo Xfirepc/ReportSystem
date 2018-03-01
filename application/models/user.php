@@ -1,11 +1,10 @@
 <?php
 
 /**
- * @author Jose Flores - Compunec     corp.compunec@gmail.com
- * @copyright 2014-2017, Carlos Yánez Correra - Compunec All Rights Reserved.
+ * @author José Flores -  vinygfx@gmail.com
+ * @copyright 2017-2018, José Flores -Rights Reserved.
  */
-
-
+	
 class User extends CI_Model
 {
 
@@ -28,11 +27,23 @@ class User extends CI_Model
 		return $this->db->update('users', $data);
 	}
 
-	public function getUsersInfo()
+	public function getUsersInfo( $fields = 30)
 	{
 
 		$this->db->select('*');
 		$this->db->from('users');
+		$this->db->limit($fields);		
+		$this->db->order_by('user_id','DESC');
+		$query = $this->db->get();
+		//$result = $query->result();
+		return $query->result();
+	}
+
+	public function getUsers()
+	{
+
+		$this->db->select('*');
+		$this->db->from('users');	
 		$this->db->order_by('user_id','DESC');
 		$query = $this->db->get();
 		//$result = $query->result();
