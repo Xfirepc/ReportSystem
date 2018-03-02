@@ -43,7 +43,8 @@ class Empleados extends CI_Controller
 		$user = $this->user->getUserCi( $_SESSION['ci'] );
 		$empleado = $this->user->getUserCi( $ci );
 		$data = [ 
-				   'profile' => $user
+				   'profile' => $user,
+				   'emp' => $empleado
 				];	
 		$this->load->view( 'dashboard/head.php', $data );
 		$this->load->view( 'dashboard/header.php', $data );

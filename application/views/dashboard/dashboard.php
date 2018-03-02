@@ -96,8 +96,6 @@
 
                             <br/><span class="col-md-12 text-muted"><?= $soli->content?>           
                                     <div class="col-md-3 pull-right text-right">
-                                    <a href="javacript:void(0)" class="btn btn btn-rounded btn-default btn-outline m-r-5"><i class="ti-check text-success m-r-5"></i>Approve</a>
-                                    <a href="javacript:void(0)" class="btn-rounded btn btn-default btn-outline"><i class="ti-close text-danger m-r-5"></i> Reject</a>
                                 </div>
                             </span> 
                             </div>
@@ -113,7 +111,7 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-    <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+    <footer class="footer text-center"> 2017 &copy; Ample Template by wrappixel.com  Editor Backend: Jose Flores</footer>
 </div>
 <!-- ============================================================== -->
 <!-- End Page Content -->

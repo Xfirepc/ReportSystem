@@ -163,7 +163,7 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+    <footer class="footer text-center"> 2017 &copy; Ample Template by wrappixel.com  Editor Backend: Jose Flores</footer>
         </div>
         <!-- /#page-wrapper -->
     </div>

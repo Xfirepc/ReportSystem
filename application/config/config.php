@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ob_start();
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/X-DEUS/';
+//$config['base_url'] = 'https://localhost/X-DEUS';
+$config['base_url'] = 'https://xfirepc.000webhostapp.com';
 
 /*
 |--------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 class Init extends CI_Controller
 {
   public $myforge;
-  public $db_names = 'quito_tdb';
+  public $db_names = 'id4457996_quito_tdb';
 
   public function index()
     {
@@ -14,7 +14,7 @@ class Init extends CI_Controller
        $this->load->dbforge();
       
 
-       if ($this->dbutil->database_exists('quito_tdb'))// Existe la DB?
+       if ($this->dbutil->database_exists('id4457996_quito_tdb'))// Existe la DB?
        {
          if(!$this->db->table_exists('users')) // Existe la tabla?
             $this->ctable_users();
@@ -24,7 +24,7 @@ class Init extends CI_Controller
 
        }else {
 
-          $this->dbforge->create_database('quito_tdb');//Creame la db
+          $this->dbforge->create_database('id4457996_quito_tdb');//Creame la db
           header('Location: '.base_url().'init');
        }
 
@@ -39,7 +39,7 @@ public function del_table($db){
 public function ctable_users () // Creacion de Tabla para Usuarios
 {
 
-  $this->load->dbforge('quito_tdb');
+  $this->load->dbforge('id4457996_quito_tdb');
    $fields = array(
         'user_id' => array(
                     'type' => 'INT',
@@ -139,7 +139,7 @@ public function ctable_soli ()  // Creacion de Tabla para  Entradas
 {
 
 
-  $this->load->dbforge('quito_tdb');
+  $this->load->dbforge('id4457996_quito_tdb');
    $fields = array(
         'id' => array(
                     'type' => 'INT',

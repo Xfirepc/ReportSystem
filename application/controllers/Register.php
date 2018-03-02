@@ -92,8 +92,9 @@ public function update ()
  				$file_name = $this->file->UploadImage('./plantilla/dashboard/plugins/images/users/','No es posible subir la imagen...');
 				$registro['img'] =  $file_name;
 		}
-
+		$this->db->where('ci', $_SESSION['ci']);
 		if ($this->db->update('users', $registro)) {
+			$_SESSION['ci'] = $registro['ci'];
 			header('location: '. base_url().'profile');
 		}else
 			echo "Algo fallo...";
