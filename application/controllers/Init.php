@@ -21,6 +21,12 @@ class Init extends CI_Controller
 
          if(!$this->db->table_exists('solicitudes')) // Existe la tabla?
             $this->ctable_soli();
+            
+        if(!$this->db->table_exists('blog')) // Existe la tabla?
+            $this->ctable_blog();
+            
+        if(!$this->db->table_exists('portfolio')) // Existe la tabla?
+            $this->ctable_port();
 
        }else {
 
@@ -29,6 +35,7 @@ class Init extends CI_Controller
        }
 
     }
+    
 public function del_table($db){
 
   $this->load->dbforge();
@@ -176,6 +183,101 @@ public function ctable_soli ()  // Creacion de Tabla para  Entradas
     if ($this->dbforge->create_table('solicitudes'))
     {
      echo 'Exito Tabla Solicitudes Creada<br>';
+     return TRUE;
+    }
+  }
+  
+  
+  
+public function ctable_blog ()  // Creacion de Tabla para  Entradas
+{
+
+
+  $this->load->dbforge('id4457996_quito_tdb');
+   $fields = array(
+        'id' => array(
+                    'type' => 'INT',
+                    'auto_increment' => TRUE
+        ),
+        'title' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '50',
+        ),
+        'description' => array(
+                        'type' =>'LONGTEXT',
+        ),
+
+        'url_image' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '100',
+        ),
+        'date' => array(
+                        'type' =>'DATE',
+        ),
+        'mentions' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '100',
+        )
+     );
+
+    $this->dbforge->add_field($fields);
+    $this->dbforge->add_key('id', TRUE);
+
+    if ($this->dbforge->create_table('blog'))
+    {
+     echo 'Exito Tabla Blog Creada<br>';
+     return TRUE;
+    }
+  }
+  
+  public function ctable_port ()  // Creacion de Tabla para  Entradas
+{
+
+
+  $this->load->dbforge('id4457996_quito_tdb');
+   $fields = array(
+        'id' => array(
+                    'type' => 'INT',
+                    'auto_increment' => TRUE
+        ),
+        'name' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '25',
+        ),
+        'title' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '50',
+        ),
+        'description' => array(
+                        'type' =>'LONGTEXT',
+        ),
+        'category' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '20',
+        ),
+        'url_image' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '100',
+        ),
+        'date' => array(
+                        'type' =>'DATE',
+        ),
+        'link' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '200',
+        ),        
+        'client' => array(
+                        'type' =>'VARCHAR',
+                        'constraint' => '25',
+        )
+     );
+
+    $this->dbforge->add_field($fields);
+    $this->dbforge->add_key('id', TRUE);
+
+    if ($this->dbforge->create_table('portfolio'))
+    {
+     echo 'Exito Tabla Portfolio Creada<br>';
      return TRUE;
     }
   }
