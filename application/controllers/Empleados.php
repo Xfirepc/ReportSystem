@@ -30,12 +30,14 @@ class Empleados extends CI_Controller
 	}
 
 	public function del ( $id = '' ){
-		if ($id != '') {
-			$this->load->model('user');
+		$this->load->model('user');
+		$user = $this->user->getUserCi( intval($_SESSION['ci']) );
+		if ($id != '' && intval($user->role) == 1) {
+			
 			$this->user->deleteUser($id);
 			header('location: '.base_url().'empleados');
 		}else
-			header('location: '.base_url());
+			echo 'No tienes permisos para realizar esta accion';
 	}
 	public function view( $ci ){
 
