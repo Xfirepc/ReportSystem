@@ -22,6 +22,7 @@ class Dashboard extends CI_Controller
 				for($x = 0; $x < count($soli); $x++) {
 					$soli[$x] = (array) $soli[$x];
 					$val = $this->user->getUserCi($soli[$x]['user_ci']);
+					$nimage = $val->img;
 					if(empty($val->img) || $val-> img == "")
 						$nimage = 'varun.jpg';
 					$soli[$x]['img'] = $nimage;
