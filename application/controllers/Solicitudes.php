@@ -16,11 +16,14 @@ class Solicitudes extends CI_Controller
 				$this->load->model( 'solicitud' );
 				$user = $this->user->getUserCi( $_SESSION['ci'] );
 				$soli = $this->solicitud->getSolicitudes()->result();
-				
 
 				for($x = 0; $x < count($soli); $x++) {
 					$soli[$x] = (array) $soli[$x];
-					$soli[$x]['img'] = $this->user->getUserCi( $soli[$x]['user_ci'] )->img;
+					$val = $this->user->getUserCi($soli[$x]['user_ci']);
+					echo $val->img;
+					if(empty($val->img) || $val-> img == "")
+						$nimage = 'varun.jpg';
+					$soli[$x]['img'] = $nimage;
 					$soli[$x] = (object) $soli[$x];
 				}
 

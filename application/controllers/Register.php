@@ -45,7 +45,7 @@ public function registro ()
 			'pass' => $this->Encrypt($post['pass']),
 			'role' => 0,
 			'observaciones' => $post['observaciones'],
-			'img' => ''
+			'img' => 'varun.jpg'
 		);
 
 		if (is_null($this->user->getUserCi($registro['ci']))) {

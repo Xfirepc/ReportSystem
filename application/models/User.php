@@ -12,10 +12,10 @@ class User extends CI_Model
 	{
 		$result = $this->db->query("SELECT * FROM users WHERE ci = '". $ci ."' LIMIT 1");
 
-		if ($result->num_rows()>0)
+		if ($result->num_rows())
 			return $result->row();
 		else
-			return null;
+			return NULL;
 		
 	}
 

@@ -22,7 +22,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://localhost/X-DEUS';
+$config['base_url'] = 'http://localhost/Trole_ReportSystem/';
 //$config['base_url'] = 'https://xfirepc.000webhostapp.com';
 
 /*

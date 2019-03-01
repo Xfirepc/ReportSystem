@@ -1,0 +1,6 @@
+[2019-03-01 14:05:57.312] [renderer1] [info] no standard startup: not just one text editor
+[2019-03-01 14:06:31.427] [renderer1] [info] No grammar found for scope text.html.javadoc
+[2019-03-01 14:24:54.095] [renderer1] [error] Invalid start index: 1: Error: Invalid start index: 1
+    at e.splice (file:///usr/share/code/resources/app/out/vs/workbench/workbench.main.js:836:164)
+    at file:///usr/share/code/resources/app/out/vs/workbench/workbench.main.js:2092:932
+    at <anonymous>
